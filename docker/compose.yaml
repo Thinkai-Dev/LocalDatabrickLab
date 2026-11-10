@@ -1,0 +1,21 @@
+name: retail-lakehouse
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: retail-localstack
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN:?Set LOCALSTACK_AUTH_TOKEN in the root .env file}
+      - SERVICES=s3
+      - AWS_DEFAULT_REGION=us-east-1
+      - PERSISTENCE=1
+    volumes:
+      - localstack-data:/var/lib/localstack
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:4566/_localstack/health >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+volumes:
+  localstack-data:
