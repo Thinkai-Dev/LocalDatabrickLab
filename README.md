@@ -91,7 +91,7 @@ docker compose -f docker/compose.yaml --env-file .env down -v
 
 ## Notes
 
-`
+```
 Some issues encountered:
 
 9. Troubleshooting guide
@@ -103,4 +103,4 @@ LocalStack exits during startup	Verify .env token and inspect docker logs retail
 Port 4566 already allocated	Check docker ps for another running instance
 Terraform cannot connect to S3	Verify LocalStack health and localhost endpoint
 Docker containers run slowly	Store the project inside Ubuntu, not /mnt/c/
-`
+```
