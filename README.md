@@ -104,3 +104,5 @@ Port 4566 already allocated	Check docker ps for another running instance
 Terraform cannot connect to S3	Verify LocalStack health and localhost endpoint
 Docker containers run slowly	Store the project inside Ubuntu, not /mnt/c/
 ```
+
+
